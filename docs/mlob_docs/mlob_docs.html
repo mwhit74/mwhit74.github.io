@@ -1,0 +1,321 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module mlob</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>mlob</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///C:/users/mwhitten/brgusers/python/remote_repos/moving_loads/ml/mlob.py">c:\users\mwhitten\brgusers\python\remote_repos\moving_loads\ml\mlob.py</a></font></td></tr></table>
+    <p><tt>The&nbsp;mlob&nbsp;module&nbsp;calculates&nbsp;the&nbsp;maximum&nbsp;effects&nbsp;of&nbsp;a&nbsp;vehicle&nbsp;on&nbsp;a&nbsp;simply<br>
+supported&nbsp;span&nbsp;including&nbsp;the&nbsp;pier&nbsp;reaction&nbsp;for&nbsp;two&nbsp;adjacent&nbsp;simply&nbsp;supported<br>
+spans&nbsp;of&nbsp;differing&nbsp;lengths.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="pdb.html">pdb</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-add_trailing_load"><strong>add_trailing_load</strong></a>(axle_spacing, axle_wt, space_to_trailing_load, distributed_load, span1_begin, span2_end, pt_load_spacing<font color="#909090">=0.5</font>)</dt><dd><tt>Approximates&nbsp;the&nbsp;distributed&nbsp;trailing&nbsp;load&nbsp;as&nbsp;closely&nbsp;spaced&nbsp;point&nbsp;loads.<br>
+&nbsp;<br>
+The&nbsp;distributed&nbsp;trailing&nbsp;load&nbsp;is&nbsp;approximated&nbsp;as&nbsp;discretly&nbsp;spaced&nbsp;point<br>
+loads.&nbsp;The&nbsp;point&nbsp;load&nbsp;spacing&nbsp;is&nbsp;assumed&nbsp;to&nbsp;be&nbsp;0.5&nbsp;unless&nbsp;the&nbsp;user<br>
+specifically&nbsp;enters&nbsp;a&nbsp;different&nbsp;spacing.&nbsp;The&nbsp;number&nbsp;of&nbsp;loads&nbsp;to&nbsp;add&nbsp;is<br>
+determined&nbsp;by&nbsp;dividing&nbsp;the&nbsp;total&nbsp;span&nbsp;length,&nbsp;span&nbsp;1&nbsp;plus&nbsp;span&nbsp;2,&nbsp;by&nbsp;the<br>
+point&nbsp;load&nbsp;spacing.&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axle_spacing&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;spacing&nbsp;of&nbsp;axles&nbsp;used&nbsp;for&nbsp;analysis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axle_wt&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;weight&nbsp;of&nbsp;axles&nbsp;used&nbsp;for&nbsp;analysis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;space_to_trailing_load&nbsp;(float):&nbsp;distance&nbsp;from&nbsp;last&nbsp;discrete&nbsp;axle&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;beginning&nbsp;of&nbsp;distributed&nbsp;load<br>
+&nbsp;&nbsp;&nbsp;&nbsp;distributed_load&nbsp;(float):&nbsp;uniformly&nbsp;distributed&nbsp;trailing&nbsp;load&nbsp;magnitude<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span1_begin&nbsp;(float):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;beginning&nbsp;of&nbsp;span&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span2_end&nbsp;(float):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;end&nbsp;of&nbsp;span&nbsp;2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;point_load_spacing&nbsp;(float,&nbsp;optional):&nbsp;spacing&nbsp;of&nbsp;approximate&nbsp;discretely<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spaced&nbsp;point&nbsp;loads,&nbsp;defaults&nbsp;to&nbsp;0.5<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axle_spacing&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;user&nbsp;input&nbsp;axle&nbsp;spacing&nbsp;appended&nbsp;with<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axle&nbsp;spacing&nbsp;for&nbsp;discretely&nbsp;spaced&nbsp;loads<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;approximate&nbsp;the&nbsp;distributed&nbsp;load<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axle_wt&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;user&nbsp;input&nbsp;axle&nbsp;weights&nbsp;appended&nbsp;with&nbsp;axle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weights&nbsp;for&nbsp;discretely&nbsp;spaced&nbsp;loads&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;approximate&nbsp;the&nbsp;distributed&nbsp;load<br>
+&nbsp;<br>
+Notes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Based&nbsp;on&nbsp;testing&nbsp;it&nbsp;can&nbsp;be&nbsp;shown&nbsp;that&nbsp;a&nbsp;reasonable&nbsp;level&nbsp;of&nbsp;accuracy&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;found&nbsp;in&nbsp;the&nbsp;forces&nbsp;and&nbsp;reactions&nbsp;using&nbsp;a&nbsp;discrete&nbsp;point&nbsp;load&nbsp;spacing&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0.5.&nbsp;This&nbsp;spacing&nbsp;assumes&nbsp;the&nbsp;span&nbsp;lengths&nbsp;are&nbsp;entered&nbsp;in&nbsp;feet.&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;the&nbsp;user&nbsp;does&nbsp;not&nbsp;want&nbsp;to&nbsp;have&nbsp;a&nbsp;distributed&nbsp;load&nbsp;on&nbsp;the&nbsp;entire<br>
+&nbsp;&nbsp;&nbsp;&nbsp;length&nbsp;of&nbsp;the&nbsp;bridge&nbsp;it&nbsp;is&nbsp;suggested&nbsp;that&nbsp;the&nbsp;actual&nbsp;axle&nbsp;spacing&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axle&nbsp;weights&nbsp;of&nbsp;the&nbsp;trailing&nbsp;load&nbsp;are&nbsp;entered&nbsp;and&nbsp;no&nbsp;distributed&nbsp;load&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;specified.</tt></dd></dl>
+ <dl><dt><a name="-analyze_vehicle"><strong>analyze_vehicle</strong></a>(axle_spacing, axle_wt, span_length1, span_length2, num_user_nodes, space_to_trailing_load, distributed_load, point_load_spacing<font color="#909090">=0.5</font>)</dt><dd><tt>Calculates&nbsp;the&nbsp;max&nbsp;shear&nbsp;and&nbsp;moment&nbsp;at&nbsp;each&nbsp;analysis&nbsp;node&nbsp;in&nbsp;1&nbsp;or&nbsp;2&nbsp;spans.<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;calculates&nbsp;the&nbsp;maximum&nbsp;shear&nbsp;and&nbsp;moment&nbsp;at&nbsp;each&nbsp;analysis&nbsp;node<br>
+in&nbsp;one&nbsp;or&nbsp;two&nbsp;spans&nbsp;of&nbsp;equal&nbsp;or&nbsp;unequal&nbsp;lengths.&nbsp;This&nbsp;is&nbsp;accomplished&nbsp;by<br>
+iterating&nbsp;through&nbsp;each&nbsp;analysis&nbsp;node,&nbsp;at&nbsp;each&nbsp;analysis&nbsp;node&nbsp;each&nbsp;axle&nbsp;of<br>
+vehicle&nbsp;is&nbsp;placed&nbsp;on&nbsp;the&nbsp;analysis&nbsp;node&nbsp;and&nbsp;the&nbsp;location&nbsp;of&nbsp;all&nbsp;the&nbsp;other<br>
+axles&nbsp;is&nbsp;determined,&nbsp;the&nbsp;moment&nbsp;and&nbsp;shear&nbsp;are&nbsp;calculated&nbsp;for&nbsp;this&nbsp;instance&nbsp;of<br>
+axle&nbsp;locations.&nbsp;This&nbsp;operation&nbsp;is&nbsp;repeated&nbsp;for&nbsp;each&nbsp;axle&nbsp;of&nbsp;the&nbsp;vehicle&nbsp;and<br>
+for&nbsp;each&nbsp;analysis&nbsp;node.&nbsp;The&nbsp;axles&nbsp;are&nbsp;incremented&nbsp;left&nbsp;to&nbsp;right&nbsp;and&nbsp;right&nbsp;to<br>
+left&nbsp;to&nbsp;cover&nbsp;all&nbsp;possible&nbsp;axle&nbsp;locations&nbsp;in&nbsp;either&nbsp;direction.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axle_spacing&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;the&nbsp;spacing&nbsp;between&nbsp;each&nbsp;axle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axle_wt&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;weight&nbsp;of&nbsp;each&nbsp;axle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span_length1&nbsp;(float):&nbsp;length&nbsp;of&nbsp;span&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span_length2&nbsp;(float):&nbsp;length&nbsp;of&nbsp;span&nbsp;2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;num_user_nodes&nbsp;(int):&nbsp;number&nbsp;of&nbsp;analysis&nbsp;nodes&nbsp;input&nbsp;by&nbsp;the&nbsp;user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;space_to_trailing_load&nbsp;(float):&nbsp;distance&nbsp;from&nbsp;last&nbsp;discrete&nbsp;axle&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;beginning&nbsp;of&nbsp;distributed&nbsp;load<br>
+&nbsp;&nbsp;&nbsp;&nbsp;distributed_load&nbsp;(float):&nbsp;uniformly&nbsp;distributed&nbsp;trailing&nbsp;load&nbsp;magnitude<br>
+&nbsp;&nbsp;&nbsp;&nbsp;point_load_spacing&nbsp;(float,&nbsp;optional):&nbsp;spacing&nbsp;of&nbsp;approximate&nbsp;discretely<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spaced&nbsp;point&nbsp;loads,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defaults&nbsp;to&nbsp;0.5<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;node_loc_ltr&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;analysis&nbsp;nodes&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;order&nbsp;ltr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;V_max1&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;maximum&nbsp;shear&nbsp;at&nbsp;each&nbsp;analysis&nbsp;node&nbsp;in&nbsp;span&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;M_max1&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;maximum&nbsp;moment&nbsp;at&nbsp;each&nbsp;analysis&nbsp;node&nbsp;in&nbsp;span&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;V_max2&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;maximum&nbsp;moment&nbsp;at&nbsp;each&nbsp;analysis&nbsp;node&nbsp;in&nbsp;span&nbsp;2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;M_max2&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;maximum&nbsp;moment&nbsp;at&nbsp;each&nbsp;analysis&nbsp;node&nbsp;in&nbsp;span&nbsp;2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Rmax_pier&nbsp;(float):&nbsp;maximum&nbsp;pier&nbsp;reaction,&nbsp;returns&nbsp;None&nbsp;if&nbsp;span&nbsp;length&nbsp;2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;not&nbsp;entered&nbsp;by&nbsp;user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span1_begin&nbsp;(float):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;beginning&nbsp;of&nbsp;span&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span2_begin&nbsp;(float):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;beginning&nbsp;of&nbsp;span&nbsp;2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Notes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Placing&nbsp;each&nbsp;axle&nbsp;directly&nbsp;at&nbsp;the&nbsp;analysis&nbsp;node&nbsp;ensures&nbsp;that&nbsp;the&nbsp;maximum<br>
+&nbsp;&nbsp;&nbsp;&nbsp;shear&nbsp;and&nbsp;moment&nbsp;is&nbsp;calculated&nbsp;for&nbsp;each&nbsp;axle&nbsp;and&nbsp;corresponding&nbsp;axle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;locations.&nbsp;While&nbsp;the&nbsp;maximum&nbsp;shear&nbsp;and&nbsp;moment&nbsp;will&nbsp;be&nbsp;calculated&nbsp;for&nbsp;that<br>
+&nbsp;&nbsp;&nbsp;&nbsp;specific&nbsp;analysis&nbsp;node&nbsp;location,&nbsp;the&nbsp;overall&nbsp;maximum&nbsp;shear&nbsp;and&nbsp;moment&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span&nbsp;may&nbsp;not&nbsp;be&nbsp;calculated&nbsp;if&nbsp;there&nbsp;is&nbsp;not&nbsp;enough&nbsp;discretization&nbsp;of&nbsp;analysis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nodes,&nbsp;i.e.&nbsp;not&nbsp;enough&nbsp;analysis&nbsp;nodes&nbsp;in&nbsp;the&nbsp;span&nbsp;to&nbsp;accurately&nbsp;describe&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;shear&nbsp;and&nbsp;moment&nbsp;behavior.</tt></dd></dl>
+ <dl><dt><a name="-calc_load_and_loc"><strong>calc_load_and_loc</strong></a>(cur_axle_loc, axle_wt, x, begin_span, end_span, num_axles)</dt><dd><tt>Calculate&nbsp;the&nbsp;load&nbsp;and&nbsp;its&nbsp;location&nbsp;on&nbsp;the&nbsp;span.<br>
+&nbsp;<br>
+Calculates&nbsp;the&nbsp;total&nbsp;load&nbsp;and&nbsp;its&nbsp;location&nbsp;on&nbsp;the&nbsp;span,&nbsp;and&nbsp;the&nbsp;load&nbsp;and<br>
+its&nbsp;location&nbsp;to&nbsp;the&nbsp;left&nbsp;and&nbsp;right&nbsp;of&nbsp;the&nbsp;node&nbsp;(critical&nbsp;section).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cur_axle_loc&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;current&nbsp;x-coordinate&nbsp;of&nbsp;all&nbsp;axles&nbsp;on&nbsp;span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axle_wt&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;weight&nbsp;of&nbsp;each&nbsp;axle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;(float):&nbsp;x-coordinate&nbsp;of&nbsp;node&nbsp;location<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin_span&nbsp;(float):&nbsp;x-coordinate&nbsp;of&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end_span&nbsp;(float):&nbsp;x-coordinate&nbsp;of&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;num_axles&nbsp;(int):&nbsp;number&nbsp;of&nbsp;program&nbsp;defined&nbsp;axles&nbsp;(includes&nbsp;axles&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;approximate&nbsp;distributed&nbsp;load)<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Pt&nbsp;(float):&nbsp;total&nbsp;load&nbsp;on&nbsp;the&nbsp;span&nbsp;due&nbsp;to&nbsp;the&nbsp;axles&nbsp;on&nbsp;the&nbsp;span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;xt&nbsp;(float):&nbsp;the&nbsp;x-coordinate&nbsp;of&nbsp;the&nbsp;equivalent&nbsp;total&nbsp;load&nbsp;on&nbsp;the&nbsp;span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Pl&nbsp;(float):&nbsp;the&nbsp;load&nbsp;on&nbsp;the&nbsp;span&nbsp;to&nbsp;the&nbsp;left&nbsp;of&nbsp;the&nbsp;node&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;xl&nbsp;(float):&nbsp;the&nbsp;x-coordinate&nbsp;of&nbsp;the&nbsp;equivalent&nbsp;load&nbsp;to&nbsp;the&nbsp;left&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Pr&nbsp;(float):&nbsp;the&nbsp;load&nbsp;on&nbsp;the&nbsp;span&nbsp;to&nbsp;the&nbsp;right&nbsp;of&nbsp;the&nbsp;node<br>
+&nbsp;&nbsp;&nbsp;&nbsp;xr&nbsp;(float):&nbsp;the&nbsp;x-coordinate&nbsp;of&nbsp;the&nbsp;equivalent&nbsp;load&nbsp;to&nbsp;the&nbsp;right&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node</tt></dd></dl>
+ <dl><dt><a name="-calc_moment"><strong>calc_moment</strong></a>(x, xl, xr, span_begin, span_end, Rb, Pl, Pr, direction)</dt><dd><tt>Calculate&nbsp;moment&nbsp;at&nbsp;node.<br>
+&nbsp;<br>
+Moving&nbsp;left&nbsp;to&nbsp;right:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;el&nbsp;=&nbsp;x&nbsp;-&nbsp;xl<br>
+&nbsp;&nbsp;&nbsp;&nbsp;eb&nbsp;=&nbsp;x&nbsp;-&nbsp;span_begin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;M&nbsp;=&nbsp;Rb*eb&nbsp;-&nbsp;Pl*el<br>
+Moving&nbsp;right&nbsp;to&nbsp;left:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;er&nbsp;=&nbsp;xr&nbsp;-&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;eb&nbsp;=&nbsp;span_end&nbsp;-&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;M&nbsp;=&nbsp;Rb*eb&nbsp;-&nbsp;Pr*er<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;(float):&nbsp;x-coordinate&nbsp;of&nbsp;node&nbsp;location<br>
+&nbsp;&nbsp;&nbsp;&nbsp;xl&nbsp;(float):&nbsp;the&nbsp;x-coordinate&nbsp;of&nbsp;the&nbsp;equivalent&nbsp;load&nbsp;to&nbsp;the&nbsp;left&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node<br>
+&nbsp;&nbsp;&nbsp;&nbsp;xr&nbsp;(float):&nbsp;the&nbsp;x-coordinate&nbsp;of&nbsp;the&nbsp;equivalent&nbsp;load&nbsp;to&nbsp;the&nbsp;right&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span_begin&nbsp;(float):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;beginning&nbsp;of&nbsp;span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span_end&nbsp;(float):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;end&nbsp;of&nbsp;span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Rb&nbsp;(float):&nbsp;reaction&nbsp;at&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Pl&nbsp;(float):&nbsp;the&nbsp;load&nbsp;on&nbsp;the&nbsp;span&nbsp;to&nbsp;the&nbsp;left&nbsp;of&nbsp;the&nbsp;node&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Pr&nbsp;(float):&nbsp;the&nbsp;load&nbsp;on&nbsp;the&nbsp;span&nbsp;to&nbsp;the&nbsp;right&nbsp;of&nbsp;the&nbsp;node<br>
+&nbsp;&nbsp;&nbsp;&nbsp;direction&nbsp;(str):&nbsp;flag&nbsp;to&nbsp;determine&nbsp;which&nbsp;direction&nbsp;is&nbsp;being&nbsp;calculated,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;either&nbsp;'ltr'&nbsp;or&nbsp;'rtl'<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;M&nbsp;(float):&nbsp;moment&nbsp;at&nbsp;the&nbsp;analysis&nbsp;node&nbsp;for&nbsp;the&nbsp;given&nbsp;span&nbsp;length&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axle&nbsp;location</tt></dd></dl>
+ <dl><dt><a name="-calc_pier_reaction"><strong>calc_pier_reaction</strong></a>(cur_axle_loc, mod_axle_wt, span1_begin, span1_end, span2_begin, span2_end, num_axles)</dt><dd><tt>Calculate&nbsp;the&nbsp;interior&nbsp;pier&nbsp;(floorbeam)&nbsp;reaction.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cur_axle_loc&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;current&nbsp;x-coordinate&nbsp;of&nbsp;all&nbsp;axles&nbsp;on&nbsp;span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axle_wt&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;weight&nbsp;of&nbsp;each&nbsp;axle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin_span&nbsp;(float):&nbsp;x-coordinate&nbsp;of&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end_span&nbsp;(float):&nbsp;x-coordinate&nbsp;of&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;num_axles&nbsp;(int):&nbsp;number&nbsp;of&nbsp;program&nbsp;defined&nbsp;axles&nbsp;(includes&nbsp;axles&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;approximate&nbsp;distributed&nbsp;load)<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Rpier&nbsp;(float):&nbsp;reaction&nbsp;at&nbsp;the&nbsp;pier&nbsp;(floorbeam)<br>
+&nbsp;<br>
+Notes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;function&nbsp;is&nbsp;very&nbsp;similar&nbsp;to&nbsp;the&nbsp;calc_load_and_loc&nbsp;function.&nbsp;The<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main&nbsp;reason&nbsp;this&nbsp;function&nbsp;is&nbsp;required&nbsp;is&nbsp;the&nbsp;loads&nbsp;that&nbsp;act&nbsp;directly<br>
+&nbsp;&nbsp;&nbsp;&nbsp;over&nbsp;the&nbsp;support&nbsp;at&nbsp;the&nbsp;beginning&nbsp;of&nbsp;span&nbsp;1&nbsp;and&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;span&nbsp;2&nbsp;do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;not&nbsp;contribute&nbsp;to&nbsp;the&nbsp;reaction&nbsp;at&nbsp;the&nbsp;pier.&nbsp;However,&nbsp;they&nbsp;do&nbsp;contribute<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;the&nbsp;reactions&nbsp;of&nbsp;each&nbsp;span&nbsp;and&nbsp;in&nbsp;determining&nbsp;the&nbsp;correct&nbsp;moment&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;shear&nbsp;in&nbsp;each&nbsp;span.</tt></dd></dl>
+ <dl><dt><a name="-calc_reactions"><strong>calc_reactions</strong></a>(Pt, xt, span_begin, span_end, direction)</dt><dd><tt>Calculate&nbsp;span&nbsp;reactions.<br>
+&nbsp;<br>
+Calculates&nbsp;the&nbsp;reactions&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;each&nbsp;span.&nbsp;The&nbsp;pier&nbsp;reaction&nbsp;is&nbsp;not<br>
+calculated&nbsp;in&nbsp;this&nbsp;function.<br>
+&nbsp;<br>
+Moving&nbsp;left&nbsp;to&nbsp;right:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Rb&nbsp;=&nbsp;Pt*(span_end&nbsp;-&nbsp;xt)/span_length<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Re&nbsp;=&nbsp;Pt*(xt&nbsp;-&nbsp;span_begin)/span_length<br>
+Moving&nbsp;right&nbsp;to&nbsp;left:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Rb&nbsp;=&nbsp;Pt*(xt&nbsp;-&nbsp;span_begin)/span_length<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Re&nbsp;=&nbsp;Pt*(span_end&nbsp;-&nbsp;xt)/span_length<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Pt&nbsp;(float):&nbsp;total&nbsp;load&nbsp;on&nbsp;the&nbsp;span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;xt&nbsp;(float):&nbsp;location&nbsp;of&nbsp;the&nbsp;total&nbsp;load&nbsp;on&nbsp;the&nbsp;span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span_begin&nbsp;(float):&nbsp;span&nbsp;begin&nbsp;coordinate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span_end&nbsp;(float):&nbsp;span&nbsp;end&nbsp;coordinate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;direction&nbsp;(str):&nbsp;flag&nbsp;to&nbsp;determine&nbsp;which&nbsp;direction&nbsp;is&nbsp;being&nbsp;calculated,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;either&nbsp;'ltr'&nbsp;or&nbsp;'rtl'<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Rb&nbsp;(float):&nbsp;reaction&nbsp;at&nbsp;the&nbsp;beginning&nbsp;of&nbsp;the&nbsp;span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Re&nbsp;(float):&nbsp;reaction&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;span<br>
+&nbsp;<br>
+Notes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;the&nbsp;vehicle&nbsp;moving&nbsp;ltr,&nbsp;Rb&nbsp;is&nbsp;the&nbsp;left&nbsp;span&nbsp;reaction&nbsp;and&nbsp;Re&nbsp;is&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;right&nbsp;span&nbsp;reaction.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;the&nbsp;vehicle&nbsp;moving&nbsp;rtl,&nbsp;Rb&nbsp;is&nbsp;the&nbsp;right&nbsp;span&nbsp;reaction&nbsp;and&nbsp;Re&nbsp;is&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;left&nbsp;span&nbsp;reaction.</tt></dd></dl>
+ <dl><dt><a name="-calc_shear"><strong>calc_shear</strong></a>(Rb, Pr, Pl, direction)</dt><dd><tt>Calculate&nbsp;shear&nbsp;on&nbsp;one&nbsp;side&nbsp;of&nbsp;the&nbsp;node.<br>
+&nbsp;<br>
+Moving&nbsp;left&nbsp;to&nbsp;right:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Ve&nbsp;=&nbsp;Pl&nbsp;-&nbsp;Rb<br>
+Moving&nbsp;right&nbsp;to&nbsp;left<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Ve&nbsp;=&nbsp;abs(Pr&nbsp;-&nbsp;Rb)<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Rb&nbsp;(float):&nbsp;reaction&nbsp;at&nbsp;beginning&nbsp;of&nbsp;span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Pr&nbsp;(float):&nbsp;the&nbsp;load&nbsp;on&nbsp;the&nbsp;span&nbsp;to&nbsp;the&nbsp;right&nbsp;of&nbsp;the&nbsp;node<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Pl&nbsp;(float):&nbsp;the&nbsp;load&nbsp;on&nbsp;the&nbsp;span&nbsp;to&nbsp;the&nbsp;left&nbsp;of&nbsp;the&nbsp;node&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;direction&nbsp;(str):&nbsp;flag&nbsp;to&nbsp;determine&nbsp;which&nbsp;direction&nbsp;is&nbsp;being&nbsp;calculated,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;either&nbsp;'ltr'&nbsp;or&nbsp;'rtl'<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Ve&nbsp;(float):&nbsp;shear&nbsp;at&nbsp;the&nbsp;analysis&nbsp;node<br>
+&nbsp;<br>
+Notes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Calculate&nbsp;shear&nbsp;on&nbsp;the&nbsp;opposite&nbsp;side&nbsp;of&nbsp;the&nbsp;section.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;the&nbsp;load&nbsp;is&nbsp;moving&nbsp;left&nbsp;to&nbsp;right,&nbsp;calculate&nbsp;the&nbsp;shear&nbsp;to&nbsp;the&nbsp;right&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;analysis&nbsp;node.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;the&nbsp;load&nbsp;is&nbsp;moving&nbsp;right&nbsp;to&nbsp;left,&nbsp;calculate&nbsp;the&nbsp;shear&nbsp;to&nbsp;the&nbsp;left&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;analysis&nbsp;node.</tt></dd></dl>
+ <dl><dt><a name="-envelope_moment"><strong>envelope_moment</strong></a>(M, M_max, index_id)</dt><dd><tt>Envelope&nbsp;maximum&nbsp;positive&nbsp;moment&nbsp;at&nbsp;each&nbsp;node.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;M&nbsp;(float):&nbsp;moment&nbsp;at&nbsp;analysis&nbsp;node<br>
+&nbsp;&nbsp;&nbsp;&nbsp;M_max&nbsp;(list):&nbsp;maximum&nbsp;moment&nbsp;at&nbsp;each&nbsp;node<br>
+&nbsp;&nbsp;&nbsp;&nbsp;index_id&nbsp;(int):&nbsp;analysis&nbsp;node&nbsp;number&nbsp;<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None<br>
+&nbsp;<br>
+Notes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;M&nbsp;is&nbsp;greater&nbsp;than&nbsp;the&nbsp;current&nbsp;maxmimum&nbsp;moment&nbsp;at&nbsp;the&nbsp;current<br>
+&nbsp;&nbsp;&nbsp;&nbsp;analysis&nbsp;node&nbsp;the&nbsp;maximum&nbsp;moment&nbsp;is&nbsp;updated&nbsp;as&nbsp;M.</tt></dd></dl>
+ <dl><dt><a name="-envelope_pier_reaction"><strong>envelope_pier_reaction</strong></a>(Rmax_pier, Rpier)</dt><dd><tt>Envelope&nbsp;the&nbsp;maximum&nbsp;interior&nbsp;pier&nbsp;(floorbeam)&nbsp;reaction.<br>
+&nbsp;<br>
+On&nbsp;each&nbsp;iteration&nbsp;compare&nbsp;the&nbsp;maximum&nbsp;pier&nbsp;reaction&nbsp;to&nbsp;the&nbsp;calculated&nbsp;pier<br>
+reaction.&nbsp;If&nbsp;the&nbsp;calculate&nbsp;pier&nbsp;reaction&nbsp;is&nbsp;greater&nbsp;than&nbsp;the&nbsp;maximum,<br>
+replace&nbsp;the&nbsp;maximum.</tt></dd></dl>
+ <dl><dt><a name="-envelope_shear"><strong>envelope_shear</strong></a>(Ve, V_max, index_id)</dt><dd><tt>Envelope&nbsp;the&nbsp;maximum&nbsp;and&nbsp;minimum&nbsp;shear&nbsp;at&nbsp;each&nbsp;node.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Ve&nbsp;(float):&nbsp;shear&nbsp;at&nbsp;analysis&nbsp;node<br>
+&nbsp;&nbsp;&nbsp;&nbsp;V_max&nbsp;(list):&nbsp;maximum&nbsp;shear&nbsp;at&nbsp;each&nbsp;node<br>
+&nbsp;&nbsp;&nbsp;&nbsp;index_id&nbsp;(int):&nbsp;analysis&nbsp;node&nbsp;number&nbsp;<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None<br>
+&nbsp;<br>
+Notes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;Ve&nbsp;is&nbsp;greater&nbsp;than&nbsp;the&nbsp;current&nbsp;maxmimum&nbsp;shear&nbsp;at&nbsp;the&nbsp;current<br>
+&nbsp;&nbsp;&nbsp;&nbsp;analysis&nbsp;node&nbsp;the&nbsp;maximum&nbsp;shear&nbsp;is&nbsp;updated&nbsp;as&nbsp;Ve.</tt></dd></dl>
+ <dl><dt><a name="-get_abs_axle_location"><strong>get_abs_axle_location</strong></a>(axle_spacing, start_pt, direction)</dt><dd><tt>Calculates&nbsp;the&nbsp;absolute&nbsp;location&nbsp;of&nbsp;the&nbsp;axles&nbsp;wrt&nbsp;the&nbsp;start&nbsp;point.</tt></dd></dl>
+ <dl><dt><a name="-move_axle_loc"><strong>move_axle_loc</strong></a>(axle_spacing, axle_id, prev_axle_loc, num_axles, direction)</dt><dd><tt>Calculates&nbsp;the&nbsp;current&nbsp;loaction&nbsp;of&nbsp;all&nbsp;the&nbsp;axles&nbsp;on&nbsp;or&nbsp;off&nbsp;the&nbsp;span.<br>
+&nbsp;<br>
+Steps&nbsp;each&nbsp;axle&nbsp;from&nbsp;its&nbsp;previous&nbsp;location&nbsp;to&nbsp;the&nbsp;current&nbsp;location&nbsp;which<br>
+is&nbsp;determined&nbsp;from&nbsp;the&nbsp;spacing&nbsp;associated&nbsp;with&nbsp;the&nbsp;axle_id&nbsp;axle.&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axle_spacing&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;the&nbsp;spacing&nbsp;between&nbsp;each&nbsp;axle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axle_id&nbsp;(int):&nbsp;index&nbsp;of&nbsp;axle&nbsp;to&nbsp;placed&nbsp;over&nbsp;the&nbsp;node<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prev_axle_loc&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;x-coordinate&nbsp;of&nbsp;the&nbsp;previous&nbsp;location&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;each&nbsp;axle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;num_axles&nbsp;(int):&nbsp;number&nbsp;of&nbsp;program&nbsp;defined&nbsp;axles&nbsp;(includes&nbsp;axles&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;approximate&nbsp;distributed&nbsp;load)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;direction&nbsp;(str):&nbsp;flag&nbsp;to&nbsp;determine&nbsp;which&nbsp;direction&nbsp;is&nbsp;being&nbsp;calculated,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;either&nbsp;'ltr'&nbsp;or&nbsp;'rtl'<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cur_axle_loc&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;the&nbsp;location&nbsp;of&nbsp;each&nbsp;axle&nbsp;on&nbsp;or&nbsp;off&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;span&nbsp;with&nbsp;the&nbsp;axle_id&nbsp;axle&nbsp;located&nbsp;over<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;current&nbsp;node</tt></dd></dl>
+ <dl><dt><a name="-node_location"><strong>node_location</strong></a>(span1_begin, span1_end, span2_begin, span2_end, num_nodes)</dt><dd><tt>Calculate&nbsp;the&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;the&nbsp;analysis&nbsp;nodes.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span1_begin&nbsp;(float):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;beginning&nbsp;of&nbsp;span&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span1_end&nbsp;(float):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;end&nbsp;of&nbsp;span&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span2_begin&nbsp;(float):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;beginning&nbsp;of&nbsp;span&nbsp;2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span2_end&nbsp;(float):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;end&nbsp;of&nbsp;span&nbsp;2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;num_nodes&nbsp;(int):&nbsp;number&nbsp;of&nbsp;analysis&nbsp;nodes&nbsp;input&nbsp;by&nbsp;the&nbsp;user<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;node_loc&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;list&nbsp;of&nbsp;the&nbsp;coordinate&nbsp;locations&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;analysis&nbsp;nodes&nbsp;along&nbsp;the&nbsp;beam<br>
+&nbsp;<br>
+Notes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;node&nbsp;values&nbsp;are&nbsp;rounded&nbsp;to&nbsp;three&nbsp;(3)&nbsp;decimal&nbsp;places.&nbsp;Otherwise&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;computer&nbsp;rounding&nbsp;messes&nbsp;up&nbsp;the&nbsp;functionality&nbsp;of&nbsp;later&nbsp;functions.&nbsp;For<br>
+&nbsp;&nbsp;&nbsp;&nbsp;example&nbsp;if&nbsp;a&nbsp;node&nbsp;location&nbsp;is&nbsp;supposed&nbsp;to&nbsp;be&nbsp;directly&nbsp;over&nbsp;a&nbsp;pier<br>
+&nbsp;&nbsp;&nbsp;&nbsp;support&nbsp;but&nbsp;it&nbsp;is&nbsp;0.000000001&nbsp;off&nbsp;the&nbsp;program&nbsp;will&nbsp;run&nbsp;as&nbsp;if&nbsp;that&nbsp;load<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;acting&nbsp;on&nbsp;span&nbsp;1&nbsp;and&nbsp;span&nbsp;2&nbsp;won't&nbsp;have&nbsp;that&nbsp;load&nbsp;applied&nbsp;even&nbsp;though<br>
+&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;should&nbsp;be.</tt></dd></dl>
+ <dl><dt><a name="-number_axles"><strong>number_axles</strong></a>(num_axles)</dt><dd><tt>Numbers&nbsp;the&nbsp;axles&nbsp;starting&nbsp;with&nbsp;1.</tt></dd></dl>
+ <dl><dt><a name="-span_begin_end_coords"><strong>span_begin_end_coords</strong></a>(span_length1, span_length2<font color="#909090">=0.0</font>)</dt><dd><tt>Calculate&nbsp;the&nbsp;span&nbsp;beginning&nbsp;and&nbsp;end&nbsp;coordinates&nbsp;for&nbsp;spans&nbsp;1&nbsp;and&nbsp;2.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span_length1&nbsp;(float):&nbsp;length&nbsp;of&nbsp;span&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span_length2&nbsp;(float,&nbsp;optional):&nbsp;length&nbsp;of&nbsp;span&nbsp;2<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span1_begin&nbsp;(float):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;beginning&nbsp;of&nbsp;span&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span1_end&nbsp;(float):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;end&nbsp;of&nbsp;span&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span2_begin&nbsp;(float):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;beginning&nbsp;of&nbsp;span&nbsp;2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span2_end&nbsp;(float):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;end&nbsp;of&nbsp;span&nbsp;2<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Parameters&nbsp;are&nbsp;returned&nbsp;as&nbsp;a&nbsp;tuple&nbsp;in&nbsp;the&nbsp;following&nbsp;order:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(span1_begin,&nbsp;span1_end,&nbsp;span2_begin,&nbsp;span2_end)</tt></dd></dl>
+</td></tr></table>
+</body></html>

@@ -1,0 +1,60 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module output</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>output</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///C:/users/mwhitten/brgusers/python/remote_repos/moving_loads/ml/output.py">c:\users\mwhitten\brgusers\python\remote_repos\moving_loads\ml\output.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-write_output"><strong>write_output</strong></a>(axle_spacing, axle_wt, span_length1, span_length2, num_user_nodes, space_to_trailing_load, distributed_load, node_loc, V_max1, M_max1, V_max2, M_max2, Rmax_pier, analysis_time, span1_begin, span2_begin)</dt><dd><tt>Format&nbsp;and&nbsp;print&nbsp;echoed&nbsp;input&nbsp;and&nbsp;program&nbsp;output.<br>
+&nbsp;<br>
+Echos&nbsp;the&nbsp;user&nbsp;input&nbsp;for&nbsp;the&nbsp;current&nbsp;run&nbsp;of&nbsp;the&nbsp;program&nbsp;followed&nbsp;by&nbsp;the<br>
+output&nbsp;for&nbsp;span&nbsp;1&nbsp;and&nbsp;span&nbsp;2,&nbsp;if&nbsp;span&nbsp;2&nbsp;is&nbsp;specified.&nbsp;This&nbsp;is&nbsp;followed&nbsp;by&nbsp;a<br>
+summary&nbsp;of&nbsp;the&nbsp;maximum&nbsp;shear&nbsp;and&nbsp;moment&nbsp;in&nbsp;each&nbsp;span&nbsp;and&nbsp;the&nbsp;maximum<br>
+pier&nbsp;reaction&nbsp;if&nbsp;span&nbsp;2&nbsp;was&nbsp;specified.&nbsp;Finally,&nbsp;the&nbsp;elapsed&nbsp;time&nbsp;for&nbsp;the<br>
+analysis&nbsp;is&nbsp;printed&nbsp;in&nbsp;seconds.<br>
+&nbsp;<br>
+The&nbsp;output&nbsp;for&nbsp;this&nbsp;function&nbsp;is&nbsp;for&nbsp;one&nbsp;half&nbsp;track&nbsp;(one&nbsp;rail).&nbsp;This&nbsp;is&nbsp;not<br>
+the&nbsp;direct&nbsp;output&nbsp;from&nbsp;the&nbsp;mlob&nbsp;module.&nbsp;The&nbsp;mlob&nbsp;module&nbsp;outputs&nbsp;the&nbsp;effects<br>
+due&nbsp;to&nbsp;a&nbsp;full&nbsp;track.&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axle_spacing&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;the&nbsp;spacing&nbsp;between&nbsp;each&nbsp;axle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axle_wt&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;weight&nbsp;of&nbsp;each&nbsp;axle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span_length1&nbsp;(float):&nbsp;length&nbsp;of&nbsp;span&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span_length2&nbsp;(float):&nbsp;length&nbsp;of&nbsp;span&nbsp;2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;num_user_nodes&nbsp;(int):&nbsp;number&nbsp;of&nbsp;analysis&nbsp;nodes&nbsp;input&nbsp;by&nbsp;the&nbsp;user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;space_to_trailing_load&nbsp;(float):&nbsp;distance&nbsp;from&nbsp;last&nbsp;discrete&nbsp;axle&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;beginning&nbsp;of&nbsp;distributed&nbsp;load<br>
+&nbsp;&nbsp;&nbsp;&nbsp;distributed_load&nbsp;(float):&nbsp;uniformly&nbsp;distributed&nbsp;trailing&nbsp;load&nbsp;magnitude<br>
+&nbsp;&nbsp;&nbsp;&nbsp;V_max1&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;maximum&nbsp;shear&nbsp;at&nbsp;each&nbsp;analysis&nbsp;node&nbsp;in&nbsp;span&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;M_max1&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;maximum&nbsp;moment&nbsp;at&nbsp;each&nbsp;analysis&nbsp;node&nbsp;in&nbsp;span&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;V_max2&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;maximum&nbsp;moment&nbsp;at&nbsp;each&nbsp;analysis&nbsp;node&nbsp;in&nbsp;span&nbsp;2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;M_max2&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;maximum&nbsp;moment&nbsp;at&nbsp;each&nbsp;analysis&nbsp;node&nbsp;in&nbsp;span&nbsp;2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Rmax_pier&nbsp;(float):&nbsp;maximum&nbsp;pier&nbsp;reaction,&nbsp;returns&nbsp;None&nbsp;if&nbsp;span&nbsp;length&nbsp;2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;not&nbsp;entered&nbsp;by&nbsp;user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span1_begin&nbsp;(float):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;beginning&nbsp;of&nbsp;span&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;span2_begin&nbsp;(float):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;beginning&nbsp;of&nbsp;span&nbsp;2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;node_loc&nbsp;(list&nbsp;of&nbsp;floats):&nbsp;coordinate&nbsp;location&nbsp;of&nbsp;analysis&nbsp;nodes&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;order&nbsp;ltr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;analysis_time&nbsp;(float):&nbsp;elapsed&nbsp;time&nbsp;for&nbsp;analysis&nbsp;to&nbsp;be&nbsp;completed<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None<br>
+&nbsp;<br>
+Notes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Writes&nbsp;echoed&nbsp;input&nbsp;and&nbsp;program&nbsp;output&nbsp;to&nbsp;terminal&nbsp;screen.</tt></dd></dl>
+</td></tr></table>
+</body></html>
